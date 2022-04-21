@@ -24,7 +24,7 @@ class Calculator {
         if (this.currentText.includes(".") == true) {
             document.getElementById("point").style.backgroundColor= "lightgrey";
         } else {
-            document.getElementById("point").style.backgroundColor= "grey";
+            document.getElementById("point").removeAttribute("style");
         }
     }
 
@@ -38,9 +38,8 @@ class Calculator {
 
     }
 
-
+    //If user is chaining multiple operations, calculate on operation press
     arithmeticOperation(operation) {
-        //If user is chaining multiple operations, calculate on operation press
         if (this.currentText === "") return
         if (this.previousText !== "") {
             this.compute()
@@ -67,14 +66,16 @@ class Calculator {
                 break
             case "÷":
                 computation = previous / current
-                break   
-// FIX ME  
+                break    
+
+//FIX ME
             case "%":
                 computation = (previous / current) * 100
                 break  
             default:
                 return
         }
+        
         this.currentText = computation
         this.operation = undefined
         this.previousText = ""
@@ -86,8 +87,7 @@ class Calculator {
         this.currentTextElement.innerText = this.currentText
         if (this.operation != null) {
             this.previousTextElement.innerText = `${this.previousText}${this.operation}`
-        }
-        
+        }        
     }
 }
 
