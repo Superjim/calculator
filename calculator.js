@@ -5,34 +5,38 @@ class Calculator {
         this.clear()
     }
 
+    //Clear function sets previous text and current text to a blank string
     clear() {
         this.previousText = ""
         this.currentText = ""
         this.operation = undefined
     }
 
+    //Delete function removes last character of string
     delete() {
-        if 
         this.currentText = this.currentText.toString().slice(0, -1)
+        this.checkForDecimal()
+    }        
 
+    //Changes the CSS providing a visual indicator whether or not the decimal has been used
+    checkForDecimal() {
+        if (this.currentText.includes(".") == true) {
+            document.getElementById("point").style.backgroundColor= "lightgrey";
+        } else {
             document.getElementById("point").style.backgroundColor= "grey";
-
-        
-
+        }
     }
 
+    //Adds a number to the end of the current string. Wont add more than one decimal
     appendNumber(number) {
-        if (number === ".") {
-            document.getElementById("point").style.backgroundColor= "lightgrey";
-        }
         if (number === "." && this.currentText.includes(".")) {
             return
         }
         this.currentText = this.currentText.toString() + number.toString()
+        this.checkForDecimal()
 
     }
 
-    // TO DO: visually display using css if a point has been used "."
 
     arithmeticOperation(operation) {
         //If user is chaining multiple operations, calculate on operation press

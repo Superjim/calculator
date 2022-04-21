@@ -14,7 +14,6 @@ body {
     
 }
 
-
 .zero { grid-area: zero; }
 .one { grid-area: one; }
 .two { grid-area: two; }
@@ -39,7 +38,7 @@ body {
 }
 
 .AC, .DEL {
-    background-color:red;
+    background-color: firebrick;
 }
 
 .equals { 
@@ -83,7 +82,7 @@ button:hover {
 }
 
 button.DEL:hover, button.AC:hover {
-    background-color: crimson;
+    background-color: pink;
 }
 
 button.divide:hover, button.percent:hover, button.multiply:hover,
