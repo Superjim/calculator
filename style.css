@@ -10,7 +10,12 @@
 body {
     padding: 0;
     margin: 0;
-    background: linear-gradient(to bottom, #e66465, #9198e5);
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(to top, #e66465, #9198e5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
 }
 
@@ -43,22 +48,28 @@ body {
 
 .equals { 
     grid-area: equals; 
-    background-color: lightblue;
+    background-color:azure;
 }
 
 .calculatorBackground {
+    border: 1px solid black;
     display: grid;
+    background-color: #e4eee9;
+    background-image: linear-gradient(315deg, #e4eee9 0%, #93a5ce 74%);
+    border-radius: 20px;
+    box-shadow: 5px 10px;
+    padding-top: 30px;
+    padding-left: 10px;
     justify-content: center;
     align-content: center;
-    height: 100vh;
-    width: 100vw;
+    width: 435px;
     grid-row-gap: 5px;
     grid-column-gap: 5px;
     grid-template-columns: repeat(4, 100px);
     grid-row: minmax(120px, auto) repeat(5, 100px);
     grid-template-areas: 
     "display display display display"
-    "AC DEL percent divide"
+    "AC DEL . divide"
     "seven eight nine multiply"
     "four five six subtract"
     "one two three add"
@@ -74,7 +85,7 @@ button {
     background-color: grey;
     height: 50px;
     border: 0px;
-
+    box-shadow: 1px 2px;
 }
 
 button:hover {
@@ -95,12 +106,14 @@ button.divide:hover, button.percent:hover, button.multiply:hover,
 }
 
 button.equals:hover {
-    background-color: aliceblue;
+    background-color: whitesmoke;
 }
 
 .display {
     grid-area: display;
-    border-radius: 5px;
+    box-shadow: inset 0 0 7.5px black;
+    margin-bottom: 25px;
+    border-radius: 10px;
     background-color: slateblue;
     min-height: 130px;
     color: white;

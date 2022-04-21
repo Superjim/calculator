@@ -88,7 +88,7 @@ class Calculator {
     }
 
     roundUp(number) {
-        return Math.round(number * 10000) / 10000
+        return Math.round(number * 1000) / 1000
     }
 
     getDisplayNumber(number) {
