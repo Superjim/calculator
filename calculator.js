@@ -10,6 +10,7 @@ class Calculator {
         this.previousText = ""
         this.currentText = ""
         this.operation = undefined
+        this.updateDisplay()
     }
 
     //Delete function removes last character of string
@@ -69,7 +70,7 @@ class Calculator {
                 break   
 // FIX ME  
             case "%":
-                computation = current / 100
+                computation = (previous / current) * 100
                 break  
             default:
                 return

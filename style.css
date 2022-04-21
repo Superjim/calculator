@@ -78,7 +78,7 @@ button {
 }
 
 button:hover {
-    background-color: lightgray;
+    background-color: lightgrey;
 }
 
 button.DEL:hover, button.AC:hover {
@@ -88,6 +88,10 @@ button.DEL:hover, button.AC:hover {
 button.divide:hover, button.percent:hover, button.multiply:hover,
  button.subtract:hover, button.add:hover{
     background-color: yellow;
+}
+
+#point:hover {
+    background-color: lightgrey;
 }
 
 button.equals:hover {
