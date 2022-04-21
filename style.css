@@ -25,23 +25,27 @@ body {
 .seven { grid-area: seven; }
 .eight { grid-area: eight; }
 .nine { grid-area: nine; }
-.point { grid-area: point; }
+#point { grid-area: point; }
+.divide { grid-area: divide;}
+.percent { grid-area: percent;}
+.multiply { grid-area: multiply; }
+.subtract { grid-area: subtract; }
+.add { grid-area: add;}
+.AC { grid-area: AC;}
+.DEL { grid-area: DEL; }
 
 .divide, .percent, .multiply, .subtract, .add {
-    grid-area: divide, percent, multiply, subtract, add;
     background-color: orange;
 }
 
 .AC, .DEL {
-    grid-area: AC, DEL;
-    background-color: lightcoral;
-
+    background-color:red;
 }
 
-.equals { grid-area: equals; 
+.equals { 
+    grid-area: equals; 
     background-color: lightblue;
 }
-
 
 .calculatorBackground {
     display: grid;
@@ -74,17 +78,30 @@ button {
 
 }
 
-.calculatorBackground > button:hover {
-    background-color: pink;
+button:hover {
+    background-color: lightgray;
+}
 
+button.DEL:hover, button.AC:hover {
+    background-color: crimson;
+}
+
+button.divide:hover, button.percent:hover, button.multiply:hover,
+ button.subtract:hover, button.add:hover{
+    background-color: yellow;
+}
+
+button.equals:hover {
+    background-color: aliceblue;
 }
 
 .display {
     grid-area: display;
+    border-radius: 5px;
     background-color: slateblue;
-    min-height: 120px;
+    min-height: 130px;
     color: white;
-    font-size: 30px;
+    font-size: 50px;
     display: flex;
     align-items: flex-end;
     justify-content: space-around;
@@ -95,43 +112,8 @@ button {
 }
 
 .previousNum {
-    font-size: 20px;
+    font-size: 30px;
 }
 
-.DEL > button:hover {
-    background-color: red;
-}
 
-/*
-
-Save incase this breaks something
-
-.divide { grid-area: divide;
-    background-color: orange;
-}
-
-.percent { grid-area: percent; 
-    background-color: orange;
-
-}
-.multiply { grid-area: multiply; 
-    background-color: orange;
-}
-
-.subtract { grid-area: subtract; 
-    background-color: orange;
-}
-
-.add { grid-area: add;
-    background-color: orange;
- }
-
- 
-.AC { grid-area: AC;
-    background-color: salmon;
-}
-.DEL { grid-area: DEL; 
-    background-color: salmon;
-}
-*/
 
