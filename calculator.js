@@ -10,6 +10,8 @@ class Calculator {
         this.previousText = ""
         this.currentText = ""
         this.operation = undefined
+        this.previousTextElement.innerText = ""
+        this.currentTextElement.innerText = ""
         this.updateDisplay()
     }
 
@@ -47,16 +49,19 @@ class Calculator {
         this.operation = operation
         this.previousText = this.currentText
         this.currentText = ""
+        this.checkForDecimal()
     }
 
     compute() {
         let computation
+        this.checkForDecimal()
         const previous = parseFloat(this.previousText)
         const current = parseFloat(this.currentText)
         if (isNaN(previous) || isNaN(current)) return
         switch (this.operation) {
             case "+":
                 computation = previous + current
+                
                 break
             case "-":
                 computation = previous - current
@@ -68,7 +73,7 @@ class Calculator {
                 computation = previous / current
                 break    
 
-//FIX ME
+//FIX ME OR DELETE ME
             case "%":
                 computation = (previous / current) * 100
                 break  
@@ -76,18 +81,43 @@ class Calculator {
                 return
         }
         
+        computation = this.roundUp(computation)
         this.currentText = computation
         this.operation = undefined
         this.previousText = ""
     }
 
+    roundUp(number) {
+        return Math.round(number * 10000) / 10000
+    }
 
+    getDisplayNumber(number) {
+        const stringNumber = number.toString()
+        const intDigits = parseFloat(stringNumber.split(".")[0])
+        const decimalDigits = stringNumber.split(".")[1]
+        let integerDisplay
+        if (isNaN(intDigits)) {
+            integerDisplay = ""
+        } else {
+            integerDisplay = intDigits.toLocaleString("en", {
+                maximumFractionDigits: 0 })
+        }
+        if (decimalDigits != null) {
+            return `${integerDisplay}.${decimalDigits}`
+        } else {
+            return integerDisplay
+        }
+    }
 
     updateDisplay() {
-        this.currentTextElement.innerText = this.currentText
+        this.currentTextElement.innerText = 
+        this.getDisplayNumber(this.currentText)
         if (this.operation != null) {
-            this.previousTextElement.innerText = `${this.previousText}${this.operation}`
-        }        
+            this.previousTextElement.innerText =
+             `${this.getDisplayNumber(this.previousText)} ${this.operation}`
+        } else {
+            this.previousTextElement.innerText = ""
+        }
     }
 }
 
